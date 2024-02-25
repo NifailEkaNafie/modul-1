@@ -1,0 +1,40 @@
+import java.util.Scanner;
+import java.time.Period;
+import java.time.LocalDate;
+
+public class codelabM1 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String name = scanner.nextLine();
+        String gender = scanner.nextLine();
+        String dobInput = scanner.nextLine();
+
+        System.out.print("Nama: ");
+        System.out.print("Jenis Kelamin (P/L): ");
+        System.out.print("Tanggal  Lahir (yyyy-mm-dd): ");
+        LocalDate dob = LocalDate.parse(dobInput);
+
+        LocalDate now = LocalDate.now();
+        Period period = Period.between(dob, now);
+
+        System.out.println();
+
+        System.out.println("Nama : "  + name);
+        System.out.println("Jenis Kelamin:  ");
+        
+        if (gender.equalsIgnoreCase("L")) {
+            System.out.print("Laki-Laki");
+        }
+        else if (gender.equalsIgnoreCase("P")) {
+            System.out.print("Perempuan");
+        }
+        System.out.println();
+        System.out.println("Umur Anda: " + period.getYears() + " Tahun  " +  period.getMonths() + "  Bulan ");
+
+        scanner.close();
+
+    }
+
+}
